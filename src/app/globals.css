@@ -8,13 +8,13 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-hammersmith-one);
+  --font-mono: var(--font-hammersmith-one);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #000404;
     --foreground: #ededed;
   }
 }
@@ -22,5 +22,64 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-hammersmith-one), sans-serif;
+}
+
+.music-hero-font {
+  font-family: var(--font-lora), serif;
+}
+
+html {
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .home-page {
+    @apply flex
+    flex-col
+    flex-1
+    items-start
+    justify-center
+    bg-zinc-50
+    font-sans
+    dark:bg-zinc-900;
+  }
+
+  .home-main {
+    @apply relative
+    flex-1
+    w-full
+    max-w-none
+    py-32
+    px-6
+    md:px-16
+    bg-white
+    dark:bg-black;
+  }
+
+  .home-heading {
+    @apply
+    text-3xl
+    text-left
+    leading-[1.2]
+    pb-2
+    min-h-22
+    md:min-h-18
+    ;
+  }
+
+  .role-fade {
+    @apply
+    transition-opacity
+    duration-300;
+  }
+
+  .role-gradient {
+    @apply inline-block
+    bg-linear-to-r
+    from-purple-500 to-blue-400
+    bg-clip-text
+    text-transparent;
+  }
 }
